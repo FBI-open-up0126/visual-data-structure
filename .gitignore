@@ -143,5 +143,6 @@ dist
 
 # Other
 PROJECT_STRUCTURE.md
+md_assets/
 
 # End of https://www.toptal.com/developers/gitignore/api/node
