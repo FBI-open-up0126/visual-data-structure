@@ -1,6 +1,11 @@
+import * as dotenv from "dotenv";
+if (process.env.NODE_ENV !== "production") {
+    dotenv.config();
+}
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
+import Drawing from "./models/drawing";
 
 mongoose
     .connect("mongodb://localhost:27017/visual-data-structure")
@@ -15,12 +20,9 @@ app.use(cors());
 
 const PORT = Number(process.env.PORT) || 8080;
 
-app.get("/api", (req, res) => {
-    res.send("Everything works!");
-});
-
-app.post("/api", (req, res) => {
-    res.send(`Created data with value of ${req.query.data}`);
+app.get("/api/drawings", async (req, res) => {
+    const drawings = await Drawing.find({});
+    res.send(drawings);
 });
 
 app.listen(PORT, () => {
