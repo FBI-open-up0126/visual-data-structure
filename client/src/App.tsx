@@ -1,25 +1,15 @@
-import React from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import Navbar from "./Navbar";
+import Drawing from "./pages/Drawing";
 
 function App() {
-    const [text, setText] = React.useState("Loading...");
-
-    React.useEffect(() => {
-        (async () => {
-            const res = await fetch("/api/drawings");
-            const text = await res.text();
-
-            setText(text);
-        })();
-    }, []);
-
     return (
         <>
-            <p>{text}</p>
+            <Navbar />
 
             <Routes>
-                <Route path="/drawings"></Route>
+                <Route path="/drawings" element={<Drawing />}></Route>
             </Routes>
         </>
     );
