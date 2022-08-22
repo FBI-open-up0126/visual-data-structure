@@ -4,7 +4,7 @@ import DrawingOptions from "../DrawingOptions";
 
 const CANVAS_SIZE = 0.8;
 
-const DRAW_MODES = ["Draw", "Select"] as const;
+const DRAW_MODES = ["Select", "Draw"] as const;
 type DrawMode = typeof DRAW_MODES[number];
 
 function Drawing(): JSX.Element {
